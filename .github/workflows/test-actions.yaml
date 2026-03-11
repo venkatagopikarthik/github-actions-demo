@@ -1,0 +1,53 @@
+name: Simple Test Pipeline
+
+on:
+
+  push:
+
+    branches:
+
+      - master
+
+  workflow_dispatch:
+
+jobs:
+
+  test-job:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Step 1 - Checkout repository
+
+        uses: actions/checkout@v4
+
+      - name: Step 2 - Print Hello World
+
+        run: echo "Hello World from GitHub Actions!"
+
+      - name: Step 3 - Print multiple messages
+
+        run: |
+
+          echo "Starting test pipeline..."
+
+          echo "This is similar to a Jenkins stage."
+
+          echo "Pipeline is running successfully."
+
+      - name: Step 4 - Print date and system info
+
+        run: |
+
+          echo "Current Date:"
+
+          date
+
+          echo "System Info:"
+
+          uname -a
+
+      - name: Step 5 - Random message
+
+        run: echo "Build completed successfully!"
